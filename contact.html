@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>My Name</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <body>
+    <div id="container">
+      <div id="header"><h1><a href="index.html">My Name</a></h1></div>
+      <div id="wrapper">
+        <div id="content">
+          <p><strong>Office:</strong></p>
+          <p>XXX-XXX</p>
+          <p><strong>Phone:</strong></p>
+          <p>1-XXX-XXX-XXX(ext. XXXXX)</p>
+          <p><strong>Fax:</strong></p>
+          <p>1-XXX-XXX-XXXX</p>
+          <p><strong>Email:</strong></p>
+          <p>XXXXX@XXXXXXX.XXXX</p>
+
+        </div>
+      </div>
+      <div id="navigation">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="publication.html">Publication</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div id="extra">
+        <p><strong>New:</strong></p>
+        <p id="topnews1"></p>
+        <p id="topnews2"></p>
+        <p id="topnews3"></p>
+         <script>
+           $.ajax({
+           url:"news.html"
+           }).done(function(data) {
+           firstnews = $(data).find("#first");
+           secondnews = $(data).find("#second");
+           thirdnews = $(data).find("#third");
+           $("#topnews1").append(firstnews);
+           $("#topnews2").append(secondnews);
+           $("#topnews3").append(thirdnews);
+           });
+        </script>
+      </div>
+      <div id="footer">
+        <p id="foottext">&copy;&nbsp;2015 X.Zhang</p>
+      </div>
+    </div>
+  </body>
+</html>
